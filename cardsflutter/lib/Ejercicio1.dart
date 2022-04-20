@@ -9,12 +9,12 @@ class Ejercicio1 extends StatelessWidget {
       appBar: AppBar(
         title: Text("Ejercicio 1"),
       ),
-      body: ListView(
-        children: [
-          listaWidgets(),
-          listaWidgets(),
-          listaWidgets(),
-        ],
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          print(index);
+          return Text("Hola mundo");
+        },
       ),
     );
   }
@@ -23,16 +23,9 @@ class Ejercicio1 extends StatelessWidget {
     return tarjeta("Hola mundi");
   }
 
-  Widget tarjeta(String titutlo) {
+  Widget tarjeta(String titulo) {
     return Card(
-      child: InkWell(
-        onTap: () {
-          print("click");
-        },
-        child: Container(
-          child: Text("tarjeta 1"),
-        ),
-      ),
+      child: Text(titulo),
     );
   }
 }// Fin de la clase
