@@ -1,3 +1,4 @@
+import 'package:cardsflutter/NuevaPagina.dart';
 import 'package:flutter/material.dart';
 
 class Ejercicio1 extends StatelessWidget {
@@ -13,17 +14,23 @@ class Ejercicio1 extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (context, index) {
           print(index);
-          return tarjeta("Hola mundo", index);
+          return tarjeta("Hola mundo", index, context);
         },
       ),
     );
   }
 
-  Widget tarjeta(String titulo, int index) {
+  Widget tarjeta(String titulo, int index, BuildContext context) {
     return Card(
       child: ListTile(
         onTap: () {
           print("Tocaron $index");
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => NuevaPagina(
+                        numero: index,
+                      )));
         },
         title: Text(titulo),
         subtitle: Text("Subtitulo"),
