@@ -13,19 +13,23 @@ class Ejercicio1 extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (context, index) {
           print(index);
-          return Text("Hola mundo");
+          return tarjeta("Hola mundo", index);
         },
       ),
     );
   }
 
-  Widget listaWidgets() {
-    return tarjeta("Hola mundi");
-  }
-
-  Widget tarjeta(String titulo) {
+  Widget tarjeta(String titulo, int index) {
     return Card(
-      child: Text(titulo),
+      child: ListTile(
+        onTap: () {
+          print("Tocaron $index");
+        },
+        title: Text(titulo),
+        subtitle: Text("Subtitulo"),
+        leading: Icon(Icons.access_alarm),
+        trailing: Icon(Icons.skip_next),
+      ),
     );
   }
 }// Fin de la clase
