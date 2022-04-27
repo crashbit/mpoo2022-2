@@ -25,12 +25,13 @@ class Ejercicio1 extends StatelessWidget {
       child: ListTile(
         onTap: () {
           print("Tocaron $index");
-          Navigator.push(
+          final resultado = Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => NuevaPagina(
                         numero: index,
                       )));
+          print(resultado);
         },
         title: Text(titulo),
         subtitle: Text("Subtitulo"),
