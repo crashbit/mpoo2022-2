@@ -20,9 +20,9 @@ class _NuevaPaginaState extends State<NuevaPagina> {
           Text("hola ${widget.numero}", style: TextStyle(fontSize: 40)),
           ElevatedButton(
             onPressed: () {
-              Navigator.pop(context, "Hola");
+              Navigator.pop(context, widget.numero);
             },
-            child: Text("Hola"),
+            child: Text("Regresar"),
           ),
         ],
       )),
@@ -32,6 +32,7 @@ class _NuevaPaginaState extends State<NuevaPagina> {
             widget.numero = widget.numero! + 1;
           });
         },
+        child: Icon(Icons.access_alarms),
       ),
     );
   }

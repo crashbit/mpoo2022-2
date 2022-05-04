@@ -25,13 +25,7 @@ class Ejercicio1 extends StatelessWidget {
       child: ListTile(
         onTap: () {
           print("Tocaron $index");
-          final resultado = Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => NuevaPagina(
-                        numero: index,
-                      )));
-          print(resultado);
+          otraPagina(context, index);
         },
         title: Text(titulo),
         subtitle: Text("Subtitulo"),
@@ -39,5 +33,11 @@ class Ejercicio1 extends StatelessWidget {
         trailing: Icon(Icons.skip_next),
       ),
     );
+  }
+
+  void otraPagina(BuildContext context, int index) async {
+    final result = await Navigator.push(context,
+        MaterialPageRoute(builder: (context) => NuevaPagina(numero: index)));
+    print("regreso $result");
   }
 }// Fin de la clase
